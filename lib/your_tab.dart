@@ -9,24 +9,24 @@ import 'dart:isolate';
 import 'package:upcom-api/tab_backend.dart';
 
 // Other parts of your back-end.
-part 'src/your_tab_helper.dart';
+part 'src/speak.dart';
 
 /// This is the main class that should encapsulate most of your code.
 /// If it does grow sufficiently large, then it will at least be your entry point.
-/// [YourTab] will be instantiated in bin/main.dart.
-class YourTab extends Tab {
+/// [CmdrSpeak] will be instantiated in bin/main.dart.
+class CmdrSpeak extends Tab {
   /// These names should match what you have in lib/tabinfo.json.
   /// names[0] will be used almost everywhere (filesystem, DOM, identification within UpCom core code, etc.).
   /// names[1] will be used when a full, pretty name is needed - such as within the Shop.
   /// names[2] will be used where space is limited, such as the tab handle title. Single words are best.
-  static final List<String> names = ['upcom-your-tab', 'Your Amazing Tab', 'YTab'];
+  static final List<String> names = ['upcom-speak', 'UpDroid Speak', 'Speak'];
 
   // Private instance variables.
   //  int _x;
   //  String _y;
 
-  YourTab(SendPort sp, args) :
-  super(YourTab.names, sp, args) {
+  CmdrSpeak(SendPort sp, args) :
+  super(CmdrSpeak.names, sp, args) {
     // Don't put expensive, time-consuming code here.
     // Set up a call to an async function, or save more
   }

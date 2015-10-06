@@ -10,12 +10,12 @@ import 'package:upcom-api/tab_frontend.dart';
 
 /// [UpDroidCamera] is a client-side class that uses the jsmpeg library
 /// to render a video stream from a [WebSocket] onto a [_canvasElement].
-class YourTabController extends TabController {
+class UpDroidSpeak extends TabController {
   /// These names should match what you have in lib/tabinfo.json.
   /// names[0] will be used almost everywhere (filesystem, DOM, identification within UpCom core code, etc.).
   /// names[1] will be used when a full, pretty name is needed - such as within the Shop.
   /// names[2] will be used where space is limited, such as the tab handle title. Single words are best.
-  static final List<String> names = ['upcom-your-tab', 'Your Amazing Tab', 'YTab'];
+  static final List<String> names = ['upcom-speak', 'UpDroid Speak', 'Speak'];
 
   /// This [List] will populate the Tab menu.
   /// You should probably keep at least File > Close Tab.
@@ -28,12 +28,10 @@ class YourTabController extends TabController {
   }
 
   // Private instance variables.
-  ScriptElement _script1, _script2;
 
-  YourTabController(List<ScriptElement> scripts) :
-  super(YourTabController.names, getMenuConfig(), 'tabs/upcom-your-tab/your_tab.css') {
-    _script1 = scripts[0];
-    _script2 = scripts[1];
+
+  UpDroidSpeak() :
+  super(UpDroidSpeak.names, getMenuConfig(), 'tabs/upcom-speak/speak.css') {
 
   }
 
@@ -81,7 +79,6 @@ class YourTabController extends TabController {
 
   /// Final clean up method, called right before the [TabController] is destroyed.
   void cleanUp() {
-    _script1.remove();
-    _script2.remove();
+
   }
 }
