@@ -1,4 +1,4 @@
-library lib.your_tab;
+library lib.speak;
 
 // Typical dart built-in imports.
 import 'dart:io';
@@ -9,7 +9,7 @@ import 'dart:isolate';
 import 'package:upcom-api/tab_backend.dart';
 
 // Other parts of your back-end.
-part 'src/speak.dart';
+part 'src/speak_helper.dart';
 
 /// This is the main class that should encapsulate most of your code.
 /// If it does grow sufficiently large, then it will at least be your entry point.
