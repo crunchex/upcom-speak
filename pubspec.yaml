@@ -1,9 +1,9 @@
-name: upcom-your-tab
+name: upcom-speak
 version: 0.1.0
 authors:
-- Your Name <your@email.com>
-description: A custom tab for UpDroid Commander
-homepage: https://www.yourwebsite.com
+- Your Name <mike@updroid.com>
+description: An UpCom Tab for robot text-to-speech.
+homepage: https://www.updroid.com
 environment:
   sdk: '>=1.9.3 <2.0.0'
 dependencies:
