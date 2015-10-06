@@ -15,7 +15,7 @@ part 'src/speak_helper.dart';
 /// If it does grow sufficiently large, then it will at least be your entry point.
 /// [CmdrSpeak] will be instantiated in bin/main.dart.
 class CmdrSpeak extends Panel {
-  /// These names should match what you have in lib/tabinfo.json.
+  /// These names should match what you have in lib/panelinfo.json.
   /// names[0] will be used almost everywhere (filesystem, DOM, identification within UpCom core code, etc.).
   /// names[1] will be used when a full, pretty name is needed - such as within the Shop.
   /// names[2] will be used where space is limited, such as the tab handle title. Single words are best.
