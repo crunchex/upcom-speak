@@ -10,7 +10,7 @@ import 'package:upcom-api/tab_frontend.dart';
 
 /// [UpDroidCamera] is a client-side class that uses the jsmpeg library
 /// to render a video stream from a [WebSocket] onto a [_canvasElement].
-class UpDroidSpeak extends TabController {
+class UpDroidSpeak extends PanelController {
   /// These names should match what you have in lib/tabinfo.json.
   /// names[0] will be used almost everywhere (filesystem, DOM, identification within UpCom core code, etc.).
   /// names[1] will be used when a full, pretty name is needed - such as within the Shop.
