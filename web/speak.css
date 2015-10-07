@@ -12,26 +12,34 @@
 }
 
 .upcom-speak-button-group {
-    position: absolute;
-    width: 200px;
+    position: relative;
+    width: 100%;
     top: 50%;
-    left: 10px;
     transform: translateY(-50%);
 }
 
 .upcom-speak-button-group>button {
     background-color: #ff2919;
     color: #ffffff;
-    padding: 10px;
-    margin-top: 20px;
+    padding: 5px;
+    margin: 5px 0 5px 0;
     border: none;
     font-family: "Avenir Next LT Pro Bold";
     font-size: 14px;
-    text-overflow: ellipsis;
+    width: 100%
 }
 
 .upcom-speak-button-group>button:hover {
     background-color: #eaecec;
     color: #ff2919;
     border: none;
+}
+
+.upcom-speak-button-group>button>span {
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+    white-space: pre-wrap;
+    display: block;
+    text-overflow: ellipsis;
 }

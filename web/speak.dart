@@ -53,17 +53,21 @@ class UpDroidSpeak extends PanelController {
     for (int i = 0; i < 8; i++) {
       ButtonElement speakButton = new ButtonElement();
       buttonGroup.children.add(speakButton);
+
+      SpanElement spanText = new SpanElement();
+      speakButton.children.add(spanText);
+
       _speakButtons.add(speakButton);
     }
 
-    _speakButtons[0].text = 'Oh, hello, everyone!  What a good looking bunch of humans!';
-    _speakButtons[1].text = 'I am a brand new Updroid robot, the first of my kind.';
-    _speakButtons[2].text = 'Thank you for inviting me; I am happy to be here.';
-    _speakButtons[3].text = 'Helping children learn sounds like fun!';
-    _speakButtons[4].text = 'Will you be my friends?';
-    _speakButtons[5].text = 'Great! Then I will be back for sure!';
-    _speakButtons[6].text = 'So long, everyone!  ';
-    _speakButtons[7].text = 'Enjoy Maker Faire!';
+    _speakButtons[0].children[0].text = 'Oh, hello, everyone!  What a good looking bunch of humans!';
+    _speakButtons[1].children[0].text = 'I am a brand new Updroid robot, the first of my kind.';
+    _speakButtons[2].children[0].text = 'Thank you for inviting me; I am happy to be here.';
+    _speakButtons[3].children[0].text = 'Helping children learn sounds like fun!';
+    _speakButtons[4].children[0].text = 'Will you be my friends?';
+    _speakButtons[5].children[0].text = 'Great! Then I will be back for sure!';
+    _speakButtons[6].children[0].text = 'So long, everyone!  ';
+    _speakButtons[7].children[0].text = 'Enjoy Maker Faire!';
   }
 
   //\/\/ Mailbox Handlers /\/\//
