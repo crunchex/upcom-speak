@@ -11,7 +11,7 @@ import 'package:upcom-api/tab_frontend.dart';
 /// [UpDroidCamera] is a client-side class that uses the jsmpeg library
 /// to render a video stream from a [WebSocket] onto a [_canvasElement].
 class UpDroidSpeak extends PanelController {
-  /// These names should match what you have in lib/tabinfo.json.
+  /// These names should match what you have in lib/panelinfo.json.
   /// names[0] will be used almost everywhere (filesystem, DOM, identification within UpCom core code, etc.).
   /// names[1] will be used when a full, pretty name is needed - such as within the Shop.
   /// names[2] will be used where space is limited, such as the tab handle title. Single words are best.
@@ -28,17 +28,42 @@ class UpDroidSpeak extends PanelController {
   }
 
   // Private instance variables.
-
+  DivElement _contentDiv;
+  InputElement _textInput;
+  List<ButtonElement> _speakButtons;
 
   UpDroidSpeak() :
-  super(UpDroidSpeak.names, getMenuConfig(), 'tabs/upcom-speak/speak.css') {
+  super(UpDroidSpeak.names, getMenuConfig(), 'panels/upcom-speak/speak.css') {
 
   }
 
   /// Initial [TabController] setup.
   /// This method is called between registerMailbox() and registerEventHandlers().
   void setUpController() {
+    _contentDiv = new DivElement()
+      ..id = '$refName-$id-content-div'
+      ..classes.add('$refName-content-div');
+    view.content.children.add(_contentDiv);
 
+    DivElement buttonGroup = new DivElement()
+      ..classes.add('upcom-speak-button-group');
+    _contentDiv.children.add(buttonGroup);
+
+    _speakButtons = [];
+    for (int i = 0; i < 8; i++) {
+      ButtonElement speakButton = new ButtonElement();
+      buttonGroup.children.add(speakButton);
+      _speakButtons.add(speakButton);
+    }
+
+    _speakButtons[0].text = 'Oh, hello, everyone!  What a good looking bunch of humans!';
+    _speakButtons[1].text = 'I am a brand new Updroid robot, the first of my kind.';
+    _speakButtons[2].text = 'Thank you for inviting me; I am happy to be here.';
+    _speakButtons[3].text = 'Helping children learn sounds like fun!';
+    _speakButtons[4].text = 'Will you be my friends?';
+    _speakButtons[5].text = 'Great! Then I will be back for sure!';
+    _speakButtons[6].text = 'So long, everyone!  ';
+    _speakButtons[7].text = 'Enjoy Maker Faire!';
   }
 
   //\/\/ Mailbox Handlers /\/\//
@@ -59,6 +84,10 @@ class UpDroidSpeak extends PanelController {
 
   /// Create any event handlers for buttons, regular DOM events, etc.
   void registerEventHandlers() {
+    for (ButtonElement b in _speakButtons) {
+      b.onClick.listen((e) => mailbox.ws.send(new Msg('SPEAK', _speakButtons.indexOf(b).toString()).toString()));
+    }
+
     window.onResize.listen((e) {
     // Maybe call a method to resize the tab's contents.
     });

@@ -31,10 +31,16 @@ class CmdrSpeak extends Panel {
     // Set up a call to an async function, or save more
   }
 
+  void speakHandler(String s) {
+    print(s);
+    print(panelPath);
+//    Process.run('mpg123', ['$s.mp3'], workingDirectory: path, runInShell: true);
+  }
+
   /// Register message handlers as part of the setup routine.
   void registerMailbox() {
     // Register message handlers for incoming String messages.
-    //  mailbox.registerMessageHandler('MESSAGE_TO_LISTEN_FOR', _messageHandler);
+      mailbox.registerMessageHandler('SPEAK', speakHandler);
 
     // Register endpoint handlers for direct websocket connections. These are more useful for
     // cases where there is a lot of data (like a video stream), or when a pre-existing application

@@ -3,3 +3,35 @@
     border: none;
     background-color: #0c0c0c;
 }
+
+.upcom-speak-content-div {
+    width: 100%;
+    height: 100%;
+    padding: 2px;
+    background-color: #eaecec;
+}
+
+.upcom-speak-button-group {
+    position: absolute;
+    width: 200px;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.upcom-speak-button-group>button {
+    background-color: #ff2919;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    font-family: "Avenir Next LT Pro Bold";
+    font-size: 14px;
+    text-overflow: ellipsis;
+}
+
+.upcom-speak-button-group>button:hover {
+    background-color: #eaecec;
+    color: #ff2919;
+    border: none;
+}
