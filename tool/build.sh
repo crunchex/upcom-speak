@@ -52,3 +52,4 @@ rm -rf $BUILDBIN/main.dart.deps
 
 # Copy over panelinfo.json -> build/bin
 cp $TOPDIR/lib/panelinfo.json $BUILDBIN
+cp $TOPDIR/bin/*.mp3 $BUILDBIN
