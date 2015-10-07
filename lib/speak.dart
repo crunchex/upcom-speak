@@ -21,6 +21,17 @@ class CmdrSpeak extends Panel {
   /// names[2] will be used where space is limited, such as the tab handle title. Single words are best.
   static final List<String> names = ['upcom-speak', 'UpDroid Speak', 'Speak'];
 
+  static final Map<String, String> filenames = {
+    0: 'hello',
+    1: 'up1',
+    2: 'thanks',
+    3: 'helping',
+    4: 'friends',
+    5: 'back',
+    6: 'so-long',
+    7: 'enjoy'
+  };
+
   // Private instance variables.
   //  int _x;
   //  String _y;
@@ -32,9 +43,8 @@ class CmdrSpeak extends Panel {
   }
 
   void speakHandler(String s) {
-    print(s);
-    print(panelPath);
-//    Process.run('mpg123', ['$s.mp3'], workingDirectory: path, runInShell: true);
+    int fileID = int.parse(s);
+    Process.run('mpg123', ['${filenames[fileID]}.mp3'], workingDirectory: panelPath, runInShell: true);
   }
 
   /// Register message handlers as part of the setup routine.
