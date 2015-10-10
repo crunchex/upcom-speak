@@ -18,6 +18,10 @@
     transform: translateY(-50%);
 }
 
+.upcom-speak-button-group>input {
+    width: 100%;
+}
+
 .upcom-speak-button-group>button {
     background-color: #ff2919;
     color: #ffffff;
@@ -33,6 +37,10 @@
     background-color: #eaecec;
     color: #ff2919;
     border: none;
+}
+
+.upcom-speak-button-group>button.upcom-speak-execute {
+    margin-bottom: 40px;
 }
 
 .upcom-speak-button-group>button>span {
