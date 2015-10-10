@@ -47,7 +47,7 @@ class UpDroidSpeak extends PanelController {
 
 
     DivElement buttonGroup = new DivElement()
-      ..classes.add('upcom-speak-button-group');
+      ..classes.add('$refName-button-group');
     _contentDiv.children.add(buttonGroup);
 
     InputElement inputText = new InputElement();
@@ -55,7 +55,7 @@ class UpDroidSpeak extends PanelController {
 
 
     ButtonElement executeSpeakButton = new ButtonElement()
-      ..classes.add('upcom-speak-execute');
+      ..classes.add('$refName-execute');
     buttonGroup.children.add(executeSpeakButton);
 
     SpanElement spanText = new SpanElement()
