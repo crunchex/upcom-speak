@@ -29,7 +29,8 @@ class UpDroidSpeak extends PanelController {
 
   // Private instance variables.
   DivElement _contentDiv;
-  InputElement _textInput;
+  InputElement _inputText;
+  ButtonElement _executeSpeakButton;
   List<ButtonElement> _speakButtons;
 
   UpDroidSpeak() :
@@ -50,17 +51,17 @@ class UpDroidSpeak extends PanelController {
       ..classes.add('$refName-button-group');
     _contentDiv.children.add(buttonGroup);
 
-    InputElement inputText = new InputElement();
-    buttonGroup.children.add(inputText);
+    _inputText = new InputElement();
+    buttonGroup.children.add(_inputText);
 
 
-    ButtonElement executeSpeakButton = new ButtonElement()
+    _executeSpeakButton = new ButtonElement()
       ..classes.add('$refName-execute');
-    buttonGroup.children.add(executeSpeakButton);
+    buttonGroup.children.add(_executeSpeakButton);
 
     SpanElement spanText = new SpanElement()
       ..text = 'Speak!';
-    executeSpeakButton.children.add(spanText);
+    _executeSpeakButton.children.add(spanText);
 
     _speakButtons = [];
     for (int i = 0; i < 8; i++) {
@@ -101,6 +102,14 @@ class UpDroidSpeak extends PanelController {
 
   /// Create any event handlers for buttons, regular DOM events, etc.
   void registerEventHandlers() {
+    _inputText.onKeyUp.listen((e) {
+      if (e.keyCode == KeyCode.ENTER) {
+        mailbox.ws.send(new Msg('SPEAK_DYNAMIC', _inputText.value).toString());
+      }
+    });
+
+    _executeSpeakButton.onClick.listen((e) => mailbox.ws.send(new Msg('SPEAK_DYNAMIC', _inputText.value).toString()));
+
     for (ButtonElement b in _speakButtons) {
       b.onClick.listen((e) => mailbox.ws.send(new Msg('SPEAK', _speakButtons.indexOf(b).toString()).toString()));
     }

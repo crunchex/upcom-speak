@@ -47,10 +47,17 @@ class CmdrSpeak extends Panel {
     Process.run('mpg123', ['${filenames[fileID]}.mp3'], workingDirectory: panelPath, runInShell: true);
   }
 
+  void dynamicHandler(String s) {
+    print('test: $s');
+//    Process.run('espeak', [s], workingDirectory: panelPath, runInShell: true);
+  }
+
   /// Register message handlers as part of the setup routine.
   void registerMailbox() {
     // Register message handlers for incoming String messages.
-      mailbox.registerMessageHandler('SPEAK', speakHandler);
+    mailbox.registerMessageHandler('SPEAK', speakHandler);
+
+    mailbox.registerMessageHandler('SPEAK_DYNAMIC', dynamicHandler);
 
     // Register endpoint handlers for direct websocket connections. These are more useful for
     // cases where there is a lot of data (like a video stream), or when a pre-existing application
