@@ -34,8 +34,7 @@ class CmdrSpeak extends Panel {
   }
 
   void dynamicHandler(String s) {
-    print('test: $s');
-//    Process.run('espeak', [s], workingDirectory: panelPath, runInShell: true);
+    Process.run('espeak', [s], workingDirectory: panelPath, runInShell: true);
   }
 
   void registerMailbox() {
